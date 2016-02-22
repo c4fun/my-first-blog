@@ -8,6 +8,9 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaks }}</p>
+            <!--下面这个比较奇特，你怎么知道comments的count的？post通过外键反向连接到comments自动算出来？-->
+            <!--<a href="{% url 'blog.views.post_detail' pk=post.pk %}">All Comments: {{ post.comments.count }}</a>-->
+            <a href="{% url 'blog.views.post_detail' pk=post.pk%}">Comments: {{ post.approved_comments.count }}</a>
         </div>
     {% endfor %}
 {% endblock %}
