@@ -25,6 +25,7 @@
     <p>{{ post.text|linebreaks }}</p>
 </div>
 
+<!--TODO 对于管理员，显示All Comments. 然后是Comments waiting for Approval-->
 <hr>
 <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
 {% for comment in post.comments.all %}
