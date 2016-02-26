@@ -1,0 +1,16 @@
+{% extends 'movie/base.html' %}
+
+{% block content %}
+
+<div>
+    <h1><a href="">{{ movie.name }}</a></h1>
+    {% load staticfiles %}
+    <img src="{% static 'movie/' movie.static_pic %}" alt="{{ movie.name }}" height="200" width="150" />
+
+    <p>Aired: <h4>{{ movie.air_time }}</h4></p>
+    <p>Score: <h4>{{ movie.score }}</h4></p>
+    <p>点评: {{ movie.critics|linebreaks }}</p>
+    <p>Movie_with: {{ movie.movie_with }}</p>
+</div>
+
+{% endblock %}

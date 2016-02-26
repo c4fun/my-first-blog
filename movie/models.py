@@ -18,6 +18,14 @@ class Movie(models.Model):
     movie_with = models.CharField(max_length=3, choices=MOVIE_WITHES)
     critics = models.TextField(default="No Critics.")
     picture_url = models.URLField(max_length=255, default="")
+    static_pic = models.CharField(max_length=200, default="")
 
     def __str__(self):
         return self.name
+
+# class Score(models.Model):
+#     movie_name = models.ForeignKey(Movie)
+#     score = models.IntegerField(default=0)
+#
+#     def __str__(self):
+#         return self.score

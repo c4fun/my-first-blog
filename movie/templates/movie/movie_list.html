@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <title>This is a movie list</title>
-</head>
-<body>
-    <h1><a href="">My Movie List</a></h1>
+{% extends 'movie/base.html' %}
+
+{% block content %}
 
     {% for movie in movies %}
         <div>
             <h1><a href="">{{ movie.name }}</a></h1>
+            {% load staticfiles %}
+            <img src="{% static 'movie/' %}{{ movie.static_pic }}" alt="{{ movie.name }}" height="200" width="150" />
+
             <p>Aired: <h4>{{ movie.air_time }}</h4></p>
             <p>Score: <h4>{{ movie.score }}</h4></p>
             <p>点评: {{ movie.critics|linebreaks }}</p>
@@ -19,6 +15,5 @@
         </div>
     {% endfor %}
 
+{% endblock %}
 
-</body>
-</html>
